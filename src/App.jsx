@@ -51,6 +51,7 @@ import authService from './appwrite/auth';
 import { Footer, Header } from './components';
 import { login, logout } from './store/authSlice';
 
+
 function App() {
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
@@ -59,7 +60,7 @@ function App() {
         authService.getCurrentUser()
             .then((userData) => {
                 if (userData) {
-                    dispatch(login({ userData })); // Pass userData to the login action
+                    dispatch(login({ userData })); 
                 } else {
                     dispatch(logout());
                 }
@@ -72,7 +73,7 @@ function App() {
             <div className='w-full block'>
                 <Header />
                 <main>
-                    <Outlet /> {/* Render nested routes */}
+                    <Outlet /> 
                 </main>
                 <Footer />
             </div>
